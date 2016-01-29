@@ -9,6 +9,11 @@
 <body>
 
 <%= yield %>
-
+	 <% if !current_user.nil? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out', signout_path, method: :destroy %>
+    <% else %>
+	<%= link_to "Home", "/auth/facebook", id: "sign_in" %>
+    <% end %>
 </body>
 </html>
