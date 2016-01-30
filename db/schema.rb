@@ -11,17 +11,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129082117) do
+ActiveRecord::Schema.define(version: 20160130084435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "line",     limit: 50
+    t.string "line2",    limit: 50
+    t.string "postcode", limit: 10
+    t.string "city",     limit: 50
+    t.string "country",  limit: 50
+  end
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email",              limit: 100, null: false
+    t.string "username",           limit: 50
+    t.string "first_name",         limit: 50
+    t.string "last_name",          limit: 50
+    t.text   "encrypted_password",             null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.integer "admin_id"
+    t.string  "name",     limit: 50, null: false
+  end
+
+  create_table "favourite_lists", force: :cascade do |t|
+    t.string  "name",        limit: 100
+    t.string  "description", limit: 250
+    t.integer "user_id"
+  end
+
+  create_table "list_places", force: :cascade do |t|
+    t.integer "favourite_list_id"
+    t.integer "place_id"
+  end
+
+  create_table "place_categories", force: :cascade do |t|
+    t.integer "place_id"
+    t.integer "category_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name",        limit: 100,                          null: false
+    t.integer  "user_id"
+    t.integer  "address_id"
+    t.datetime "verified_at"
+    t.string   "description", limit: 250
+    t.time     "open_at"
+    t.time     "close_at"
+    t.string   "phone",       limit: 20
+    t.string   "email",       limit: 100
+    t.string   "website",     limit: 100
+    t.decimal  "latitude",                precision: 10, scale: 6
+    t.decimal  "longitude",               precision: 10, scale: 6
+    t.json     "avatars"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string  "first_name"
     t.string  "last_name"
     t.string  "gender"
     t.integer "age"
-    t.string  "email"
+    t.string  "email",      null: false
     t.string  "username"
     t.string  "provider"
     t.string  "uid"
