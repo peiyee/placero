@@ -8,13 +8,15 @@ devise :database_authenticatable, :registerable,
   def self.from_omniauth(auth)
     # byebug
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
-      byebug
+      # byebug
       user.provider = auth.provider
       user.uid = auth.uid
-      user.first_name = auth.info.name
-      user.age = auth.info.age
-      user.gender = auth.info.gender
+      user.username = auth.info.name
+      user.age = auth.extra.raw_info.age_range
+      user.gender = auth.extra.raw_info.gender
+      user.image_url = auth.info.image
       user.email = auth.info.email
+      user.provider = auth.provider
       user.password = Devise.friendly_token[0,20]
       user.save!
     end
