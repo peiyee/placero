@@ -9,11 +9,12 @@
 <body>
 
 <%= yield %>
-	 <% if !current_user.nil? %>
+	 <% if user_signed_in? %>
+   
       Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', signout_path, method: :destroy %>
+      <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
     <% else %>
-	<%= link_to "Home", "/auth/facebook", id: "sign_in" %>
+	<%= link_to "Continue with Facebook", user_omniauth_authorize_path(:facebook) %>
     <% end %>
 </body>
 </html>
