@@ -1,4 +1,4 @@
-<h2>Home</h2>
+
 <!-- Slider main container -->
 <div class="swiper-container">
     <!-- Additional required wrapper -->
@@ -14,42 +14,107 @@
     <!-- If we need navigation buttons -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-    
-    
 </div>
-<script>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<%if current_user%>
+
+<input type="checkbox" id="sidebartoggler" name="" value="">
+
+<div class="page-wrap">
+
+  <nav id="navbar">
+  <div>
+    <div class="float_left_nav">
+
+    <label for="sidebartoggler" class="toggle"><div class="hamb"></div><div class="hamb" style=""></div><div class="hamb"></div></label>
+
+    <a href="#"></a><img id="placero" src="assets/logoicon.png"></a>
+
+    <img id="heart" src="assets/heart.png">
+
+    </div>
+    
+    <div class="float_right_nav">
+    <img id="filter" src="assets/filter.png">
+
+    <%= link_to image_tag("/assets/create.png", :class=>"create"),places_new_path %>
+
+    </div>
+
+  </div>
+
+  
+  </nav>
+  
+  <div>
+    <div class="float_right">
+        
+
+
+    </div>
+  
+  
+    <div class="float_left">
+
+      <div class="sidebar">
+      <ul>
+        <li><a href="#"><img src="<%= current_user.avatar.medium_avatar.url %>" class="circular-image" /></a>
+          <%= current_user.username %></li>
+        <li><img id="switch" src="assets/Switch.png">Location Setting</li>
+        <li><img id="view" src="assets/View.png">My Placero</li>
+        <li><img id="contact" src="assets/Contact.png">Contact Placero</li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+      </ul>
+      </div> 
+
+   </div>
+
+
+<% else %>
+
+<html>
+      <div class="loginpage"><img id= "mainlogo" src="assets/logo.png"> </div>
+      <div class="facebooklogin"><%= link_to image_tag("/assets/facebookbutton.png", :class=>"fbbutton"),user_omniauth_authorize_path(:facebook) %>
+      </div>
+</html>
+
+ <% end %>
+ <script>
 $(document).ready(function(){
-	//initialize swiper when document ready  
-    var mySwiper = new Swiper ('.swiper-container', {
-      // Optional parameters
-      direction: 'horizontal',
-      loop: false
-    })       
-	
 
-	  if (!navigator.geolocation){
-	    output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
-	    return;
-	  }
+      //initialize swiper when document ready  
+        var mySwiper = new Swiper ('.swiper-container', {
+          // Optional parameters
+          direction: 'horizontal',
+          loop: false
+        })       
+    if (!navigator.geolocation){
+      output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+      return;
+    }
 
-	  function success(position) {
-	    var latitude  = position.coords.latitude;
-	    var longitude = position.coords.longitude;
+    function success(position) {
+      var latitude  = position.coords.latitude;
+      var longitude = position.coords.longitude;
 
-	    // output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
-	    $.ajax({
-	    		method: 'post',
-	    		url: '/sessions/store_location',
-	            data: {latitude: latitude, longitude: longitude}
-	        });
-	  };
+      // output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+      $.ajax({
+          method: 'post',
+          url: '/sessions/store_location',
+              data: {latitude: latitude, longitude: longitude}
+          });
+    };
 
-	  function error() {
-	    // output.innerHTML = "Unable to retrieve your location";
-	  };
+    function error() {
+      // output.innerHTML = "Unable to retrieve your location";
+    };
 
-	  // output.innerHTML = "<p>Locating…</p>";
+    // output.innerHTML = "<p>Locating…</p>";
 
-	  navigator.geolocation.getCurrentPosition(success, error);
+    navigator.geolocation.getCurrentPosition(success, error);
 });
 </script>
+
