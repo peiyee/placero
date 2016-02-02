@@ -31,6 +31,11 @@ gem 'devise'
 gem 'geocoder'
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'fog'
+# photo resizing
+gem "mini_magick"
+# file upload solution
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -48,7 +53,7 @@ group :development, :test do
   gem 'shoulda-callback-matchers'
   gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
   gem 'bullet'
 end
 

@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Placero</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if user_signed_in? %>
-  <div>
-    Signed in as: <%= current_user.email %>
-    <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
-    <%= link_to "post new place", places_new_path %>
+  <div>   
+  
   </div>
-<% else %>
-
-  <%= link_to "Continue with Facebook", user_omniauth_authorize_path(:facebook),id: "login_facebook" %>
-
-<% end %>
 <%= yield %>
-	 
 </body>
 </html>

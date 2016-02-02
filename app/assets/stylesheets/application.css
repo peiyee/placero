@@ -13,3 +13,244 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+
+ #mainlogo {
+ 	width: 300px;
+ 	height: 120px;
+ }
+
+.loginpage {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 150px;
+	width: 20em;
+}
+
+.facebooklogin {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	width: 14em;
+}
+
+.fbbutton {
+	width: 200px;
+	height: 40px;
+}
+
+.circular-image {
+  border-radius:  50%;
+  margin-top: 5px;
+}
+
+
+
+/*@import url(http://fonts.googleapis.com/css?family=Advent+Pro:100);
+html { 
+  background:  url(http://chatdrive.com/wp-content/uploads/2014/07/lonely-road-1080p-hd-wallpaper-e1404763508743.jpg) no-repeat center center fixed; 
+  background-size: cover;
+}
+h1{
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 3em;
+  margin: .2em .5em;
+  color: rgba(0,0,0, 0.5);
+}
+body {
+    height: 100%;
+}*/
+
+/* VARIABLES */
+/* BASE */
+html { 
+  background:  url(http://chatdrive.com/wp-content/uploads/2014/07/lonely-road-1080p-hd-wallpaper-e1404763508743.jpg) no-repeat center center fixed; 
+  background-size: cover;
+}
+
+body {
+  margin: 0;
+  padding: 0; 
+  font-family: sans-serif;
+}
+
+.hamb{
+  margin-top: 5px;
+  width: 28px;
+  height: 5px;
+  background: black;
+  margin-bottom: 3px;
+  
+}
+#navbar{
+  height: 65px;
+  width: 100%;
+  position: absolute;
+  z-index:9999;
+  background: white;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+#navbar a {
+	margin-top: 5px;
+	margin-left: 70px;
+}
+
+#placero {
+	margin-top: 25px;
+	width: 80px;
+	height: 40px;
+}
+
+#heart {
+	margin-left: 10px;
+	width: 40px;
+	height: 40px;
+}
+
+#create {
+	
+	margin-top: 18px;
+	width: 42px;
+	height: 42px;
+}
+
+#filter {
+
+	margin-top: 18px;
+	width: 40px;
+	height: 40px;
+}
+
+#switch {
+	width: 30px;
+	height: auto;
+}
+
+#view {
+	width: 30px;
+	height: auto;
+}
+
+#contact {
+	width: 30px;
+	height: auto;
+}
+
+
+.page-content {
+  width: 75%;
+  
+  
+  z-index: 0;
+  -webkit-transition: all 0.15s ease-out 0;
+  -moz-transition: all 0.15s ease-out 0;
+  transition: all 0.15s ease-out 0;
+  background: #eeeeee; 
+}
+
+.toggle {
+  text-decoration: none;
+  font-size: 30px;
+  color: black;
+  -webkit-transition: all 0.15s ease-out 0;
+  -moz-transition: all 0.15s ease-out 0;
+  transition: all 0.15s ease-out 0;
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  z-index: 1;
+  cursor: pointer; 
+  transition: .8s;
+}
+
+.sidebar {
+  position: fixed;
+  top: 45px;
+  bottom: 0px;
+  left: -300px;
+  -webkit-transition: all 0.15s ease-out 0;
+  -moz-transition: all 0.15s ease-out 0;
+  transition: all 0.15s ease-out 0;
+  width: 200px;
+  padding: 30px;
+  background: #ffffff;
+  z-index: 0; 
+  transition: .7s;
+}
+  
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+
+.sidebar li {
+    color: black; 
+    font-family: "Ubuntu", sans-serif;
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 25px;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer; }
+   
+.sidebar li:hover {
+   color: black; }
+
+#sidebartoggler {
+  display: none; 
+}
+  #sidebartoggler:checked + .page-wrap .sidebar {
+    left: 0px; 
+    transition: .6s;
+  }
+  #sidebartoggler:checked + .page-wrap {
+    left: 200px; 
+    transition: .6s;
+  }
+  #sidebartoggler:checked + .page-wrap .page-content {
+    opacity: .8;
+   
+  }
+
+.float_right {
+	float: right;
+	display:inline-block;
+    margin:auto;
+
+}
+
+.float_left {
+	float:left;
+}
+
+
+.float_right_nav {
+	float: right;
+}
+
+.float_left_nav {
+	float:left;
+}
+
+/* ==========================================================================
+   Small devices (IPHONE, 320px and max 667px)
+   ========================================================================== */
+
+@media (min-width: 320px) and (max-width: 667px)  {
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
