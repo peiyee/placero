@@ -16,11 +16,19 @@ ActiveRecord::Schema.define(version: 20160201015113) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "addresses", force: :cascade do |t|
+    t.string "line",     limit: 50
+    t.string "line2",    limit: 50
+    t.string "postcode", limit: 10
+    t.string "city",     limit: 50
+    t.string "country",  limit: 50
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "gender"
-    t.integer  "age"
+    t.string   "age"
     t.string   "email"
     t.string   "username"
     t.string   "provider"
