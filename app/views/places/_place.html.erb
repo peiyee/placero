@@ -1,0 +1,10 @@
+<% @places.each_with_index do |place,pi| %>
+	<div>
+		<%= "#{pi+1}. #{place.name}" %><br>
+		<% if place.longitude.nil? || place.latitude.nil? %>
+			<%= "*this location coordinate is incomplete" %>
+		<% else %>
+			<%= "latitude: #{place.latitude}, longitude: #{place.longitude}" %>
+		<% end %>
+	</div>
+<% end %>

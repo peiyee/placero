@@ -11,18 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201015113) do
+ActiveRecord::Schema.define(version: 20160201030618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "addresses", force: :cascade do |t|
-    t.string "line",     limit: 50
-    t.string "line2",    limit: 50
-    t.string "postcode", limit: 10
-    t.string "city",     limit: 50
-    t.string "country",  limit: 50
-  end
 
   create_table "admins", force: :cascade do |t|
     t.string "email",              limit: 100, null: false
@@ -67,6 +59,11 @@ ActiveRecord::Schema.define(version: 20160201015113) do
     t.decimal  "latitude",                precision: 10, scale: 6
     t.decimal  "longitude",               precision: 10, scale: 6
     t.json     "avatars"
+    t.string   "line",        limit: 50
+    t.string   "line2",       limit: 50
+    t.string   "postcode",    limit: 10
+    t.string   "city",        limit: 50
+    t.string   "country",     limit: 50
   end
 
   create_table "users", force: :cascade do |t|

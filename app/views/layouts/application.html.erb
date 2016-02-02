@@ -14,7 +14,9 @@
     <%= link_to "post new place", places_new_path %>
   </div>
 <% else %>
-  <%= link_to "Continue with Facebook", user_omniauth_authorize_path(:facebook) %>
+
+  <%= link_to "Continue with Facebook", user_omniauth_authorize_path(:facebook),id: "login_facebook" %>
+
 <% end %>
 <%= yield %>
 	 

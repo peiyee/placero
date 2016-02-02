@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks => "omniauth_callbacks"}
   root 'home#index'
   
+  get 'places/new' => 'places#new'
+  post 'places' => 'places#create'
+  get 'places' => 'places#index'
+  get 'places/search' => 'places#search'
+
+  post 'sessions/store_location' => 'sessions#store_location' 
   # match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # match 'auth/failure', to: redirect('/'), via: [:get, :post]
   # match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
