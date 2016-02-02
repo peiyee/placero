@@ -1,5 +1,18 @@
 <h2>All places</h2>
-
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+       <% @places.each do |place| %>
+       		<div class="swiper-slide">
+       			<%= image_tag(place.avatars[0].url)  %>
+       		</div>
+       <% end %>
+        
+    </div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
 <div id="out"></div>
 <%= form_tag places_search_path, method: :get, remote: true do |f| %>
 		<p>
@@ -13,5 +26,22 @@
 <div id="search_places">
 	<%= render 'place' %>
 </div>
+<script>
+	$(document).ready(function(){
+      //initialize swiper when document ready  
+        var mySwiper = new Swiper ('.swiper-container', {
+          // Optional parameters
+          direction: 'horizontal',
+          loop: false,
+          effect: "coverflow"
+          
+        });
+        mySwiper.on('transitionEnd', function () {
 
-
+            console.log(mySwiper.activeIndex);
+        });
+        mySwiper.on('tap', function(){
+          console.log('tapped')
+        })
+    });
+</script>

@@ -1,4 +1,5 @@
 class Place < ActiveRecord::Base
+	mount_uploaders :avatars, AvatarUploader
 	has_many :place_categories
 	geocoded_by :get_address
 	after_validation :geocode, :if => lambda{ |obj| obj.address_changed? }

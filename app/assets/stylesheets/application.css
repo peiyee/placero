@@ -216,6 +216,7 @@ body {
   }
 
 .float_right {
+  padding-top: 100px;
 	float: right;
 	display:inline-block;
     margin:auto;
@@ -245,14 +246,3 @@ body {
 
 
 }
-
-
-
-
-
-
-
-
-
-
->>>>>>> origin/master

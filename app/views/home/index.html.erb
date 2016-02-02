@@ -1,20 +1,3 @@
-
-<!-- Slider main container -->
-<div class="swiper-container">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        ...
-    </div>
-   
-    
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-</div>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -51,9 +34,7 @@
   
   <div>
     <div class="float_right">
-        
-
-
+      
     </div>
   
   
@@ -82,15 +63,10 @@
 </html>
 
  <% end %>
+  <!-- Slider main container -->
+  
  <script>
-$(document).ready(function(){
-
-      //initialize swiper when document ready  
-        var mySwiper = new Swiper ('.swiper-container', {
-          // Optional parameters
-          direction: 'horizontal',
-          loop: false
-        })       
+$(document).ready(function(){     
     if (!navigator.geolocation){
       output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
       return;
