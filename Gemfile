@@ -29,6 +29,7 @@ gem 'omniauth-facebook'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'geocoder'
+gem 'sidekiq'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'fog'
@@ -36,7 +37,9 @@ gem 'fog'
 gem "mini_magick"
 # file upload solution
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+
 gem 'gon'
+gem 'acts-as-taggable-on', '~> 3.4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

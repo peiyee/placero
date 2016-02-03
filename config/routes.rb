@@ -2,17 +2,39 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => {:omniauth_callbacks => "omniauth_callbacks"}
   root 'home#index'
+
   
   get 'places/new' => 'places#new'
   post 'places' => 'places#create'
-  get 'places' => 'places#index'
+
   get 'places/search' => 'places#search'
   get 'places/:id' => 'places#show'
 
   post 'sessions/store_location' => 'sessions#store_location' 
-
   post 'favourite_lists' => 'favourite_lists#create'
   get 'favourite_lists' => 'favourite_lists#index'
+
+  resources :feedbacks, 
+  only: [:new, :create]
+  get '/feedbacks' => 'feedbacks#new'
+  resources :places, only: [:index] do 
+    resources :reports, only: [:new, :create]
+  end
+    get '/places/:place_id/reports' => 'reports#new'
+
+  # get '/reports' => 'reports#new'
+
+
+  # mount Si  require 'sidekiq/web'dekiq::Web => '/sidekiq'
+  # resources :listings do 
+  #   resources :reservations
+  # end
+
+  # root 'home#index'
+
+  # resources :users,
+  # controller: 'users',
+  # only: [:create, :new]
   # match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # match 'auth/failure', to: redirect('/'), via: [:get, :post]
   # match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]

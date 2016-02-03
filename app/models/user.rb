@@ -9,13 +9,11 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
 
   def self.from_omniauth(auth)
-    # byebug
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
-      # byebug
       user.provider = auth.provider
       user.uid = auth.uid
       user.username = auth.info.name
-      user.age = auth.extra.raw_info.age_range
+      user.age = auth.extra.raw_info.birthday
       user.gender = auth.extra.raw_info.gender
       user.image_url = auth.info.image
       user.email = auth.info.email

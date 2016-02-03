@@ -49,7 +49,7 @@ class PlacesController < ApplicationController
 	private
 	def place_params
 		params.require(:place).permit(:line,:line2,:postcode,:city,:country,:name,:user_id,
-			:verified_at,:description,:open_at,:close_at,:phone,:email,:website,:latitude,:longitude,{avatars: []})
+			:verified_at,:description,:open_at,:close_at,:phone,:email,:website,:latitude,:longitude,:{avatars: []},:tag_list)
 	end
 
 

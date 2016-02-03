@@ -12,7 +12,26 @@
  *
  *= require_tree .
  *= require_self
+
+
  */
+#create_nav{
+	margin-left: 50px;
+}
+
+.sarrow{
+	width: 60px;
+	height: 60px;
+}
+
+.top_bar{
+	background-color: #fff;
+    border-bottom: 1px solid #ecf0f1;
+    }
+
+.center_form{
+	margin-left: 400px;
+}
 
  #mainlogo {
  	width: 300px;
@@ -57,32 +76,77 @@ div.photo {
   box-shadow: 0px 1px 7px 0px #cfcfcf;
 }
 
-/*@import url(http://fonts.googleapis.com/css?family=Advent+Pro:100);
-html { 
-  background:  url(http://chatdrive.com/wp-content/uploads/2014/07/lonely-road-1080p-hd-wallpaper-e1404763508743.jpg) no-repeat center center fixed; 
-  background-size: cover;
-}
-h1{
-  font-family: 'Advent Pro', sans-serif;
-  font-size: 3em;
-  margin: .2em .5em;
-  color: rgba(0,0,0, 0.5);
-}
-body {
-    height: 100%;
-}*/
+/* ==========================================================================
+   BODY / NAV BAR / SIDE BAR
+   ========================================================================== */
 
-/* VARIABLES */
-/* BASE */
+
 html { 
-  background:  url(http://chatdrive.com/wp-content/uploads/2014/07/lonely-road-1080p-hd-wallpaper-e1404763508743.jpg) no-repeat center center fixed; 
-  background-size: cover;
+	background-color: #d0d2d3
+  
 }
 
 body {
   margin: 0;
   padding: 0; 
   font-family: sans-serif;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+}
+
+form {
+  background: #fff;
+  border: 1px solid #9e9e9e;
+  border-radius: 0.25em;
+  width: 20em;
+  padding: 1em 1em 2em;
+  margin: 2em auto;
+}
+
+form h1 {
+  font-weight: 300;
+  font-size: 2em;
+  padding: 0 0.3em;
+  color: #999;
+}
+
+label {
+  display: block;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 0.8;
+  margin: 0.6em 0.6em -0.5em 0.6em;
+  color: #606060;
+}
+
+input {
+  font-size: 1em;
+  border: 1px solid #9e9e9e;
+  border-radius: 0.25em;
+  padding: 0.64em;
+  margin: 0.4em 0.4em;
+}
+
+input[type="submit"] {
+  font-weight: 300;
+  font-size: 1.2em;
+  border: 1px solid #00A388;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  margin-top: 0.75em;
+  color: #fff;
+  background: #79BD8F;
+  transition: background 500ms ease-out;
+}
+
+input[type="submit"]:hover {
+  background: #00A388;
+}
+
+input:focus {
+  outline-color: #BEEB9F;
 }
 
 .hamb{
@@ -120,14 +184,13 @@ body {
 }
 
 #create {
-	
-	margin-top: 18px;
+	margin-right: 10px;
+	margin-top: 25px;
 	width: 42px;
 	height: 42px;
 }
 
 #filter {
-
 	margin-top: 18px;
 	width: 40px;
 	height: 40px;
@@ -244,6 +307,86 @@ body {
 	float:left;
 }
 
+.float_right_form {
+	float: right;
+	margin-right: 500px;
+	margin-top: 50px;
+}
+
+.float_left_form {
+	float:left;
+	margin-left: 10px;
+	margin-top: 50px;
+}
+
+
+
+
+
+/* ==========================================================================
+   Slider Range Bar
+   ========================================================================== */
+
+
+.container {
+  display: flex;
+  width: 500px;
+  height: 500px;
+  margin: left;
+  text-align: center;
+}
+
+.slider {
+  width: 50%;
+  margin: 50% auto;
+}
+
+input[type="range"] {
+  -webkit-appearance: none !important;
+  width: 100%;
+  height: 15px;
+  background-color: #A3CD99;
+  border: 1px solid #97c68b;
+  border-radius: 10px;
+  margin: auto;
+  transition: all 0.3s ease;
+}
+input[type="range"]:hover {
+  background-color: #b2d5aa;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  width: 20px;
+  height: 20px;
+  background-color: #579E81;
+  border-radius: 30px;
+  box-shadow: 0px 0px 3px #3c6d59;
+  transition: all 0.5s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: #457d66;
+}
+input[type="range"]::-webkit-slider-thumb:active {
+  box-shadow: 0px 0px 1px #3c6d59;
+}
+
+#rangevalue {
+  text-align: center;
+  font-family: "Quantico", sans-serif;
+  font-size: 18px;
+  display: block;
+  margin: auto;
+  padding: 10px 0px;
+  width: 100%;
+  color: #579E81;
+}
+
+
+
+
+
+
 /* ==========================================================================
    Small devices (IPHONE, 320px and max 667px)
    ========================================================================== */
@@ -253,4 +396,43 @@ body {
 
 
 
+}
+#mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9000;
+  background-color: #000;
+  display: none;
+}
+
+#boxes .window {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 440px;
+  height: 200px;
+  display: none;
+  z-index: 9999;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+#boxes #dialog {
+  width: 750px;
+  height: 300px;
+  padding: 10px;
+  background-color: pink;
+  background-image: linear-gradient(red, orange, yellow, green, blue, indigo, violet);
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 15pt;
+}
+
+#popupfoot {
+  font-size: 16pt;
+  position: absolute;
+  bottom: 0px;
+  width: 250px;
+  left: 250px;
 }

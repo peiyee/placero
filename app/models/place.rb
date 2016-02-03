@@ -1,7 +1,10 @@
 class Place < ActiveRecord::Base
 	mount_uploaders :avatars, AvatarUploader
-	has_many :place_categories
 	belongs_to :list_place
+	acts_as_taggable
+	acts_as_taggable_on :tags
+	has_many :place_categories
+	has_many :reports
 	geocoded_by :get_address
 	after_validation :geocode, :if => lambda{ |obj| obj.address_changed? }
 

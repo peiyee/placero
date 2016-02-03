@@ -5,6 +5,7 @@
 			<%= "*this location coordinate is incomplete" %>
 		<% else %>
 			<%= "latitude: #{place.latitude}, longitude: #{place.longitude}" %>
+			<%= button_to 'Report', new_place_report_path(place), :method => "get" %>
 		<% end %>
 	</div>
 <% end %>
