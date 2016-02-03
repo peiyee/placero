@@ -1,6 +1,4 @@
 <h2>All places</h2>
-
-
 <div id="out"></div>
 <%= form_tag places_search_path, method: :get, remote: true do |f| %>
 		<p>
@@ -14,14 +12,9 @@
 <div id="search_places">
 	<%= render 'place' %>
 </div>
-
-
 <div class="container">
   <div class="slider">
   <input type = "range" min="0" max="30" onchange="rangevalue.value=value"/>
 	<output id="rangevalue">15</output>
   </div>
   </div>
-
-
-  
