@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20160201030618) do
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.string   "encrypted_password",     default: ""
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

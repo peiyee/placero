@@ -80,7 +80,8 @@ $(document).ready(function(){
       $.ajax({
           method: 'post',
           url: '/sessions/store_location',
-              data: {latitude: latitude, longitude: longitude}
+          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+          data: {latitude: latitude, longitude: longitude}
           });
     };
 

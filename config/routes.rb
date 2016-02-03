@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   post 'places' => 'places#create'
   get 'places' => 'places#index'
   get 'places/search' => 'places#search'
+  get 'places/:id' => 'places#show'
 
   post 'sessions/store_location' => 'sessions#store_location' 
+
+  post 'favourite_lists' => 'favourite_lists#create'
+  get 'favourite_lists' => 'favourite_lists#index'
   # match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # match 'auth/failure', to: redirect('/'), via: [:get, :post]
   # match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]

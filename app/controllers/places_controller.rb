@@ -4,6 +4,10 @@ class PlacesController < ApplicationController
 		@place = Place.new
 	end
 
+	def show
+		byebug
+	end
+
 	def create
 		@place = Place.new(place_params)
 		if @place.save
@@ -17,14 +21,19 @@ class PlacesController < ApplicationController
 	end
 
 	def index
+
 		if params[:search].nil? 
-			@places = Place.near([latitude, longitude], 20,:units => :km) 
+			@places = Place.near([latitude, longitude], 20,:units => :km)
+			# byebug 
+			gon.places = @places
 			respond_to do |format|
 			    format.html
 			end
 		else
 			# byebug
 			@places = Place.near(params[:search], 20, :units => :km)
+			# byebug
+			gon.places = @places
 			respond_to do |format|
 			    format.js
 			end
@@ -34,6 +43,7 @@ class PlacesController < ApplicationController
 
 	def search
 		@places = Place.near(params[:search], 20, :units => :km)
+		gon.places = @places
 	end
 
 	private
