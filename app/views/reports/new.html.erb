@@ -1,11 +1,12 @@
 <div id="boxes">
   <div id="dialog" class="window">
-<h1>New Feedback</h1>
-<%= form_for(:feedback, url: feedbacks_path) do |f| %>
+<h1>Please submit your reports below</h1>
+<%= form_for(:report, url: place_reports_path) do |f| %>
   <%= f.text_field :body %>
   <%= submit_tag 'Send' %> 
 <% end %>
-<%= link_to 'Back', root_path %> 
+
+<%= link_to 'Back', places_path %>
   </div>
   <div id="mask"></div>
 </div>

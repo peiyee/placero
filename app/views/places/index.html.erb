@@ -1,0 +1,16 @@
+<h2>All places</h2>
+<div id="out"></div>
+<%= form_tag places_search_path, method: :get, remote: true do |f| %>
+		<p>
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag "Search", name: nil %>
+		</p>
+<% end %>
+<div id="my_search">
+	<p><strong>Nearby me</strong></p>
+</div>
+<div id="search_places">
+	<%= render 'place' %>
+</div>
+
+

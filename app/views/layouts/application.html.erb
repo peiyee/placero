@@ -3,18 +3,27 @@
 <head>
   <title>Placero</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "application.css" %>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 </head>
 <body>
+<% if user_signed_in? %>
+  <div>
+    Signed in as: <%= current_user.email %>
+    <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
+    <%= link_to "post new place", places_new_path %>
+  </div>
+<% else %>
 
+  <%= link_to "Continue with Facebook", user_omniauth_authorize_path(:facebook),id: "login_facebook" %>
+
+<% end %>
 <%= yield %>
-	 <% if user_signed_in? %>
-   
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
-    <% else %>
-	<%= link_to "Continue with Facebook", user_omniauth_authorize_path(:facebook) %>
-    <% end %>
+	 
 </body>
 </html>

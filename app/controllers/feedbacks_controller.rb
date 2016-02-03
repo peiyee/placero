@@ -1,9 +1,12 @@
+require_relative '../jobs/feedbackjob'
+
 class FeedbacksController < ApplicationController
   def index
   end
 
   def create 
-	FeedbackMailer.feedback_email(@customer, @host, current_user, feedback_params[:body]).deliver_now
+  	# byebug
+	FeedbackJob.perform_later(@customer, @host, current_user, feedback_params[:body])
   end
 
   private

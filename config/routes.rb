@@ -6,6 +6,30 @@ Rails.application.routes.draw do
   resources :feedbacks, 
   only: [:new, :create]
   get '/feedbacks' => 'feedbacks#new'
+  get 'places/new' => 'places#new'
+  post 'places' => 'places#create'
+  resources :places, only: [:index] do 
+    resources :reports, only: [:new, :create]
+  end
+    get '/places/:place_id/reports' => 'reports#new'
+
+  # get '/reports' => 'reports#new'
+  get 'places/search' => 'places#search'
+
+  post 'sessions/store_location' => 'sessions#store_location' 
+
+
+  # mount Si  require 'sidekiq/web'dekiq::Web => '/sidekiq'
+  # resources :listings do 
+  #   resources :reservations
+  # end
+
+  # root 'home#index'
+
+  # resources :users,
+  # controller: 'users',
+  # only: [:create, :new]
+
   # match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # match 'auth/failure', to: redirect('/'), via: [:get, :post]
   # match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
