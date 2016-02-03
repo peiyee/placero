@@ -1,7 +1,16 @@
-<h2>create new place</h2>
+<div class="top_bar">
+
+<a href="/"><div id="create_nav"><img class="arrow" src="/assets/backarrow.png"> Create New Place</div></a>
+
+</div>
+
+<div class="center_form">
 <%= form_for @place, url: places_path do |f| %>
+    
+<div class="float_left_form">
+   
 	<div>
-		<%= f.label "Name:" %><br>
+		<%= f.label "Name" %><br>
 		<%= f.text_field :name %>
 	</div>
 	<div>
@@ -16,6 +25,9 @@
 		<%= f.label "Address line 2" %><br>
 		<%= f.text_field :line2 %>
 	</div>
+</div>
+
+<div class="float_right_form">
 	<div>
 		<%= f.label "Postcode" %><br>
 		<%= f.text_field :postcode %>
@@ -29,6 +41,12 @@
 		<%= f.text_field :country %>
 	</div>
 	<div>
+		<%= f.label :tag_list, "Tags (seperated by commas)" %><br>
+		<%= f.text_field :tag_list %>
+	</div>
+	<div>
 		<%= f.submit %>
 	</div>
 <% end %>
+</div>
+</div>

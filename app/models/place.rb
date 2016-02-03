@@ -1,4 +1,6 @@
 class Place < ActiveRecord::Base
+	acts_as_taggable
+	acts_as_taggable_on :tags
 	has_many :place_categories
 	geocoded_by :get_address
 	after_validation :geocode, :if => lambda{ |obj| obj.address_changed? }
