@@ -15,16 +15,12 @@
     <label for="sidebartoggler" class="toggle"><div class="hamb"></div><div class="hamb" style=""></div><div class="hamb"></div></label>
 
     <a href="#"></a><img id="placero" src="assets/logoicon.png"></a>
-
-    <img id="heart" src="assets/heart.png">
-
+      <img src="assets/heart.png" id="heart">
     </div>
     
     <div class="float_right_nav">
     <img id="filter" src="assets/filter.png">
-
-    <a href="/places/new"><img id="create" src="assets/create.png"></a>
-    
+      <a href="/places/new"><img id="create" src="assets/create.png"></a>
     </div>
 
   </div>
@@ -34,10 +30,11 @@
   
   <div>
     <div class="float_right">
-      
+      <div class="content">
+      </div>
     </div>
   
-  
+ 
     <div class="float_left">
 
       <div class="sidebar">
@@ -91,6 +88,91 @@ $(document).ready(function(){
     // output.innerHTML = "<p>Locating…</p>";
 
     navigator.geolocation.getCurrentPosition(success, error);
+    var places = gon.places;
+    var number_of_places = places.length;
+    var initial_number = 0;
+    var saved_list = [];
+    
+     addNewProfile();
+     $("#heart").click(function(){
+      if(saved_list.length <= 0){
+        alert("you haven't liked any place yet...")
+      }
+      else{
+        $.ajax({
+            method: 'post',
+            url: '/favourite_lists',
+            data: {places_id: saved_list},
+            success: function(data){
+                var full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
+                // console.log(initial_number + ":" + places[initial_number].name);
+                window.location.href = full+"/favourite_lists/"+data.favourite_list_id;
+              },
+            fail: function(data){
+              alert("can't save your list")
+            } 
+            });
+      }
+     });
+     function swipe() {
+       Draggable.create("#photo", {
+           throwProps:true,
+           onDragEnd:function(endX) {
+              initial_number++    
+             if(Math.round(this.endX) > 0 ) {
+               swipeLike();
+             }
+             else {
+               swipeDislike();
+             }
+         },
+         onClick:function(){
+          var currentPlace = places[initial_number]
+          var full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
+          // console.log(initial_number + ":" + places[initial_number].name);
+          window.location.href = full+"/places/"+currentPlace.id;
+         }
+       });
+     }
+
+     function swipeLike() {
+       
+         var $photo = $("div.content").find('#photo');
+
+         var swipe = new TimelineMax({repeat:0, yoyo:false, repeatDelay:0, onComplete:remove, onCompleteParams:[$photo]});
+         swipe.staggerTo($photo, 0.8, {bezier:[{left:"+=400", top:"+=300", rotation:"60"}], ease:Power1.easeInOut});
+         
+         saved_list.push(places[initial_number-1].id)
+         addNewProfile();
+     }
+
+     function swipeDislike() {
+       
+         var $photo = $("div.content").find('#photo');
+
+         var swipe = new TimelineMax({repeat:0, yoyo:false, repeatDelay:0, onComplete:remove, onCompleteParams:[$photo]});
+         swipe.staggerTo($photo, 0.8, {bezier:[{left:"+=-350", top:"+=300", rotation:"-60"}], ease:Power1.easeInOut});
+         addNewProfile();
+     }
+
+     function remove(photo) {
+         $(photo).remove();
+     }
+
+     function addNewProfile() {
+      if(initial_number < number_of_places ){
+        var url = places[initial_number].avatars[0].url
+        $("div.content").prepend("<div class='photo' id='photo' style='background-image:url("+url+")''>"
+          + '<span class="meta">' 
+          + places[initial_number].name
+          + '</span>' 
+          + '</div>');
+          swipe();
+      }
+      else{
+        alert("finish")
+      }
+     };
 });
 </script>
 

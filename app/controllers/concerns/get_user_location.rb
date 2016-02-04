@@ -2,7 +2,7 @@ module GetUserLocation
 	extend ActiveSupport::Concern
 	included do
 
-		before_action :authenticate_user!
+		# before_action :authenticate_user!
 		before_action :get_latitude_longitude
 		attr_reader :latitude, :longitude
 	end

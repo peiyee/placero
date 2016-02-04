@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   get 'places/:id' => 'places#show'
 
   post 'sessions/store_location' => 'sessions#store_location' 
-  post 'favourite_lists' => 'favourite_lists#create'
   get 'favourite_lists' => 'favourite_lists#index'
+  post 'favourite_lists' => 'favourite_lists#create'
+
+  get 'favourite_lists/:id' => 'favourite_lists#show', as: :favourite_list_show
 
   resources :feedbacks, 
   only: [:new, :create]

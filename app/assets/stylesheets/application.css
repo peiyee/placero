@@ -289,8 +289,9 @@ input:focus {
 .float_right {
   padding-top: 100px;
 	float: right;
+  margin-right: 700px;
 	display:inline-block;
-    margin:auto;
+    
 
 }
 
