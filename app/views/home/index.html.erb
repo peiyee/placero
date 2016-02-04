@@ -162,10 +162,10 @@ $(document).ready(function(){
      function addNewProfile() {
       if(initial_number < number_of_places ){
         var url = places[initial_number].avatars[0].url
-        $("div.content").prepend("<div class='photo' id='photo' style='background-image:url("+url+")''>"
-          + '<span class="meta">' 
+        $("div.content").prepend("<div class='photo' id='photo' style='position: absolute; background-image:url("+url+")'>" 
+          + "<div class='photo-name'>"
           + places[initial_number].name
-          + '</span>' 
+          + '</div'
           + '</div>');
           swipe();
       }
