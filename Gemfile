@@ -38,8 +38,8 @@ gem "mini_magick"
 # file upload solution
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
+gem 'gon'
 gem 'acts-as-taggable-on', '~> 3.4'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

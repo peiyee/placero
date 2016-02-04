@@ -62,8 +62,27 @@
   margin-top: 5px;
 }
 
-
-
+div.photo {
+  position:absolute;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:265px;
+  height:315px;
+  border:1px solid #a6a9aa;
+  border-radius: 8px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0px 1px 7px 0px #cfcfcf;
+}
+div.photo-name{
+  z-index: 10;
+  position: absolute;
+  width: inherit;
+  height: auto;
+  bottom: 0;
+  background-color: rgba(255,255,255,0.5);
+}
 /* ==========================================================================
    BODY / NAV BAR / SIDE BAR
    ========================================================================== */
@@ -275,9 +294,11 @@ input:focus {
   }
 
 .float_right {
+  padding-top: 100px;
 	float: right;
+  margin-right: 700px;
 	display:inline-block;
-    margin:auto;
+    
 
 }
 

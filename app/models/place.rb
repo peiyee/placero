@@ -1,4 +1,6 @@
 class Place < ActiveRecord::Base
+	mount_uploaders :avatars, AvatarUploader
+	belongs_to :list_place
 	acts_as_taggable
 	acts_as_taggable_on :tags
 	has_many :place_categories

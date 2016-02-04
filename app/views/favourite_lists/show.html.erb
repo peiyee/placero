@@ -1,0 +1,6 @@
+<h2>favourite list</h2>
+<% @places.each_with_index do |place, pi| %>
+	<div>
+		<%= "#{pi+1}. #{place.name}" %>
+	</div>
+<% end %>

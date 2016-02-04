@@ -1,20 +1,28 @@
 <h2>All places</h2>
-<div id="out"></div>
-<%= form_tag places_search_path, method: :get, remote: true do |f| %>
-		<p>
-			<%= text_field_tag :search, params[:search] %>
-			<%= submit_tag "Search", name: nil %>
-		</p>
-<% end %>
-<div id="my_search">
-	<p><strong>Nearby me</strong></p>
-</div>
-<div id="search_places">
-	<%= render 'place' %>
-</div>
+
+  <div style="padding-top: 400px;">
+    <%= form_tag places_search_path, method: :get, remote: true do |f| %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", name: nil %>
+        </p>
+    <% end %>
+    <div id="my_search">
+      <p><strong>Nearby me</strong></p>
+    </div>
+    <div id="search_places">
+      <%= render 'place' %>
+    </div>
+  </div>
+  
 <div class="container">
   <div class="slider">
-  <input type = "range" min="0" max="30" onchange="rangevalue.value=value"/>
-	<output id="rangevalue">15</output>
+    <input type = "range" min="0" max="30" onchange="rangevalue.value=value"/>
+	  <output id="rangevalue">15</output>
   </div>
-  </div>
+</div>
+<script>
+  $(document).ready(function() {
+    
+  });
+</script>

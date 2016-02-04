@@ -8,8 +8,13 @@ Rails.application.routes.draw do
   post 'places' => 'places#create'
 
   get 'places/search' => 'places#search'
+  get 'places/:id' => 'places#show'
 
   post 'sessions/store_location' => 'sessions#store_location' 
+  get 'favourite_lists' => 'favourite_lists#index'
+  post 'favourite_lists' => 'favourite_lists#create'
+
+  get 'favourite_lists/:id' => 'favourite_lists#show', as: :favourite_list_show
 
   resources :feedbacks, 
   only: [:new, :create]
@@ -32,7 +37,6 @@ Rails.application.routes.draw do
   # resources :users,
   # controller: 'users',
   # only: [:create, :new]
-
   # match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # match 'auth/failure', to: redirect('/'), via: [:get, :post]
   # match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
